@@ -11,3 +11,4 @@ class UserAccountLocators:
     EXIT_BTN = By.XPATH, '//*[contains(@class, "Account_button")]'  # кнопка Выход
     ORDER_STATUS = By.XPATH, '//p[text()="Выполнен"]'  # статус заказа в истории
     ORDER_NUMBER = By.XPATH, '//*[contains(@class,"textBox")]//p[contains(@class,"digits-default")]'  # номер заказа в истории
+    ACCOUNT_BTN = By.XPATH, '//*[@href="/account"]'  # кнопка "Личный Кабинет"

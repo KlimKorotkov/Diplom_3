@@ -1,6 +1,5 @@
 import allure
 from Diplom_3.locators.user_account_locators import UserAccountLocators
-from Diplom_3.locators.header_locators import HeaderLocators
 from Diplom_3.pages.base_page import BasePage
 
 
@@ -11,7 +10,7 @@ class UserAccountPage(BasePage):
 
     @allure.step('Клик по кнопке Личный кабинет')
     def click_account_btn(self):
-        self.move_to_element_and_click(HeaderLocators.ACCOUNT_BTN)
+        self.move_to_element_and_click(UserAccountLocators.ACCOUNT_BTN)
         self.wait_visibility_element(UserAccountLocators.PROFILE_BTN)
 
     @allure.step('Клик по кнопке "Выход"')

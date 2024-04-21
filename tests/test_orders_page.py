@@ -10,18 +10,21 @@ from Diplom_3.conftest import driver, login, create_and_delete_user
 
 
 class TestOrderListPage:
+    def setup_class_orders_page(self):
+        self.orders_page = OrdersPage(driver)
+
     @allure.title('Проверка всплывающего окна с деталями заказа')
     def test_open_order_details_popup(self, driver):
         HeaderPage(driver).click_orders_list_btn()
-        OrdersPage(driver).click_order()
-        assert OrdersPage(driver).check_element(OrdersPageLocators.ORDER_STRUCTURE_TITLE).is_displayed()
+        self.orders_page.click_order()
+        assert self.orders_page.check_element(OrdersPageLocators.ORDER_STRUCTURE_TITLE).is_displayed()
 
     @allure.title('Проверка отображения созданного заказа в Ленте заказов')
     def test_new_order_in_orderlist(self, driver, login):
         main_page = MainPage(driver)
         header_page = HeaderPage(driver)
         account_page = UserAccountPage(driver)
-        order_page = OrdersPage(driver)
+        order_page = self.orders_page
         main_page.make_order_and_get_order_number()
         account_page.click_account_btn()
         account_page.click_on_order_list()
@@ -36,7 +39,7 @@ class TestOrderListPage:
     def test_change_counter_total_orders(self, driver, login):
         main_page = MainPage(driver)
         header_page = HeaderPage(driver)
-        orders_page = OrdersPage(driver)
+        orders_page = self.orders_page
         main_page.find_element(MainPageLocators.INGREDIENT_BUN)
         header_page.click_orders_list_btn()
         orders_page.wait_visibility_element(OrdersPageLocators.ORDERS_LIST_TITLE)
@@ -53,7 +56,7 @@ class TestOrderListPage:
     def test_change_counter_today_orders(self, driver, login):
         main_page = MainPage(driver)
         header_page = HeaderPage(driver)
-        order_page = OrdersPage(driver)
+        order_page = self.orders_page
         main_page.find_element(MainPageLocators.INGREDIENT_BUN)
         header_page.click_orders_list_btn()
         order_page.wait_visibility_element(OrdersPageLocators.ORDERS_LIST_TITLE)
@@ -70,7 +73,7 @@ class TestOrderListPage:
     def test_new_order_appears_in_work_list(self, driver, login):
         main_page = MainPage(driver)
         header_page = HeaderPage(driver)
-        orders_page = OrdersPage(driver)
+        orders_page = self.orders_page
         new_order = main_page.make_order_and_get_order_number()
         header_page.click_orders_list_btn()
         orders_page.wait_visibility_element(OrdersPageLocators.ALL_ORDERS_READY)

@@ -23,12 +23,12 @@ class BasePage:
 
     @allure.step('Вставить текст {text}')
     def set_text_to_element(self, locator, text):
-        WebDriverWait(self.driver, 15).until(EC.element_to_be_clickable(locator))
+        self.driver.click_to_element(*locator)
         self.driver.find_element(*locator).send_keys(text)
 
     @allure.step('Клик по видимому элементу')
     def click_to_visible_element(self, locator):
-        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(locator)).click()
+        self.driver.find_element(*locator).click()
 
     @allure.step('Проверка отображения элемента на странице')
     def check_element(self, locator):
@@ -41,7 +41,7 @@ class BasePage:
 
     @allure.step('Ожидание видимости элемента на странице')
     def wait_visibility_element(self, locator):
-        WebDriverWait(self.driver, 15).until(EC.visibility_of_element_located(locator))
+        self.driver.find_element(*locator)
 
     @allure.step('Ожидание невидимости элемента на странице')
     def wait_invisibility_element(self, locator):
