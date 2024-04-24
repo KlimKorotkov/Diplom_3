@@ -25,3 +25,26 @@ class OrdersPage(BasePage):
     @allure.step('Получение заказа по номеру в разделе "В работе"')
     def get_order_number_in_work(self):
         return self.get_text_of_element(OrdersPageLocators.ORDER_IN_WORK)
+
+    @allure.step('Проверка отображения элемента на странице')
+    def check_order_structure_title(self):
+        self.driver.check_element(OrdersPageLocators.ORDER_STRUCTURE_TITLE)
+        return self.driver.find_element(OrdersPageLocators.ORDER_STRUCTURE_TITLE)
+
+    @allure.step('Поиск элемента')
+    def find_orders_list_title(self):
+        return self.driver.find_element(OrdersPageLocators.ORDERS_LIST_TITLE)
+
+    @allure.step('Ожидание видимости элемента на странице')
+    def wait_visibility_order_list_title(self):
+        self.driver.find_element(OrdersPageLocators.ORDERS_LIST_TITLE)
+
+    @allure.step('Ожидание видимости элемента на странице')
+    def wait_visibility_all_orders_ready(self):
+        self.driver.find_element(OrdersPageLocators.ALL_ORDERS_READY)
+
+    @allure.step('Ожидание видимости элемента на странице')
+    def wait_visibility_order_in_work(self):
+        self.driver.find_element(OrdersPageLocators.ORDER_IN_WORK)
+
+

@@ -17,3 +17,7 @@ class HeaderPage(BasePage):
     @allure.step('Клик по кнопке "Личный кабинет"')
     def click_user_account_btn(self):
         self.move_to_element_and_click(HeaderLocators.ACCOUNT_BTN)
+
+    @allure.step('Ожидание видимости элемента на странице')
+    def wait_visibility_order_list_title(self):
+        self.driver.find_element(OrdersPageLocators.ORDERS_LIST_TITLE)
