@@ -57,30 +57,30 @@ class MainPage(BasePage):
 
     @allure.step('Получение текста элемента')
     def get_text_of_ingredient_popup_title(self):
-        return self.driver.find_element(MainPageLocators.INGREDIENT_POPUP_TITLE).text
+        return self.find_element(MainPageLocators.INGREDIENT_POPUP_TITLE).text
 
     @allure.step('Проверка невидимости элемента на странице')
     def check_invisibility_ingredient_popup(self):
-        return self.driver.check_invisibility(MainPageLocators.INGREDIENT_POPUP)
+        return self.check_invisibility(MainPageLocators.INGREDIENT_POPUP)
 
     @allure.step('Проверка отображения элемента на странице')
     def check_ingredient_popup(self):
-        self.driver.check_element(MainPageLocators.INGREDIENT_POPUP)
-        return self.driver.find_element(MainPageLocators.INGREDIENT_POPUP)
+        self.check_element(MainPageLocators.INGREDIENT_POPUP)
+        return self.find_element(MainPageLocators.INGREDIENT_POPUP)
 
     @allure.step('Поиск элемента')
     def find_ingredient_bun(self):
-        return self.driver.find_element(MainPageLocators.INGREDIENT_BUN)
+        return self.find_element(MainPageLocators.INGREDIENT_BUN)
 
     @allure.step('Поиск элемента')
     def find_order_number(self):
-        return self.driver.find_element(MainPageLocators.ORDER_NUMBER)
+        return self.find_element(MainPageLocators.ORDER_NUMBER)
 
     @allure.step('Проверка отображения элемента на странице')
     def check_order_status_text(self):
-        self.driver.check_element(MainPageLocators.ORDER_STATUS_TEXT)
-        return self.driver.find_element(MainPageLocators.ORDER_STATUS_TEXT)
+        self.check_element(MainPageLocators.ORDER_STATUS_TEXT)
+        return self.find_element(MainPageLocators.ORDER_STATUS_TEXT)
 
     @allure.step('Ожидание видимости элемента на странице')
     def wait_visibility_burger_constructor_title(self):
-        self.driver.find_element(MainPageLocators.BURGER_CONSTRUCTOR_TITLE)
+        self.find_element(MainPageLocators.BURGER_CONSTRUCTOR_TITLE)

@@ -18,8 +18,8 @@ class PasswordRecoverPage(BasePage):
 
     @allure.step('Поиск элемента')
     def find_save_btn(self):
-        return self.driver.find_element(PasswordRecoverLocators.SAVE_BTN)
+        return self.find_element(PasswordRecoverLocators.SAVE_BTN)
 
     @allure.step('Поиск элемента')
     def find_input_password_active(self):
-        return self.driver.find_element(PasswordRecoverLocators.INPUT_PASSWORD_ACTIVE)
+        return self.find_element(PasswordRecoverLocators.INPUT_PASSWORD_ACTIVE)

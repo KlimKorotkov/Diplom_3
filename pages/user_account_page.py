@@ -27,22 +27,22 @@ class UserAccountPage(BasePage):
 
     @allure.step('Авторизация пользователя')
     def login(self, email, password):
-        self.driver.set_text_to_element(UserAccountLocators.INPUT_EMAIL, email)
-        self.driver.set_text_to_element(UserAccountLocators.INPUT_PASSWORD, password)
-        self.driver.click_to_visible_element(UserAccountLocators.ENTER_BTN)
+        self.set_text_to_element(UserAccountLocators.INPUT_EMAIL, email)
+        self.set_text_to_element(UserAccountLocators.INPUT_PASSWORD, password)
+        self.click_to_visible_element(UserAccountLocators.ENTER_BTN)
 
     @allure.step('Поиск элемента')
     def find_order_status(self):
-        return self.driver.find_element(UserAccountLocators.ORDER_STATUS)
+        return self.find_element(UserAccountLocators.ORDER_STATUS)
 
     @allure.step('Ожидание видимости элемента на странице')
     def wait_visibility_profile_btn(self):
-        self.driver.find_element(UserAccountLocators.PROFILE_BTN)
+        self.find_element(UserAccountLocators.PROFILE_BTN)
 
     @allure.step('Ожидание видимости элемента на странице')
     def wait_visibility_enter_btn(self):
-        self.driver.find_element(UserAccountLocators.ENTER_BTN)
+        self.find_element(UserAccountLocators.ENTER_BTN)
 
     @allure.step('Получение текста элемента')
     def get_text_of_enter_btn(self):
-        return self.driver.find_element(UserAccountLocators.ENTER_BTN).text
+        return self.find_element(UserAccountLocators.ENTER_BTN).text
